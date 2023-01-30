@@ -6,12 +6,24 @@ branding:
   color: 'gray-dark'
 
 inputs:
-  arg:
-    description: "arg"
+  client-secret:
+    description: 'client secret file body'
     required: true
+
+  download-file-id:
+    description: "the id to download file"
+    required: false
+
+  download-path:
+    description: "The path where the files to be downloaded is located"
+    required: false
+    default: ./
 
 runs:
   using: docker
   image: Dockerfile
   env:
-    ARG: ${{ inputs.arg }}
+   CLIENT_SECRET: ${{ inputs.client-secret }}
+   DOWNLOAD_FILE_ID: ${{ inputs.download-file-id }}
+   DOWNLOAD_PATH: ${{ inputs.download-path }}
+   
