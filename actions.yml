@@ -1,0 +1,17 @@
+name: Interact with Google Drive
+description: Upload/Download files to/from Google Drive
+
+branding:
+  icon: upload-cloud
+  color: 'gray-dark'
+
+inputs:
+  arg:
+    description: "arg"
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    ARG: ${{ inputs.arg }}
